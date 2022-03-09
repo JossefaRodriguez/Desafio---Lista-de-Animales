@@ -39,7 +39,7 @@ class Mascota extends Animal {
     }
 }
 
-function crearDatosConsulta() {
+const crearDatosConsulta = () => {
     const nombre = document.querySelector('#propietario').value
     const telefono = document.querySelector('#telefono').value
     const direccion = document.querySelector('#direccion').value
@@ -47,26 +47,29 @@ function crearDatosConsulta() {
     const nombreMascota = document.querySelector('#nombreMascota').value
     const enfermedad = document.querySelector('#enfermedad').value
 
+    // Asignacion de variables para luego crear el objeto
+
     if (tipo === 'perro') {
-        const perro = new Mascota(nombre, direccion, telefono, tipo, nombreMascota, enfermedad)
+        const perro = new Mascota(nombre, direccion, telefono, tipo, nombreMascota, enfermedad) // En la creacion de constantes se realizo con letra minuscula en lugar de mayuscula para seguir la convencion de manera correcta aprobado por el profe Claudio 
         return perro
     } else if (tipo === 'gato') {
-        const gato = new Mascota(nombre, direccion, telefono, tipo, nombreMascota, enfermedad)
+        const gato = new Mascota(nombre, direccion, telefono, tipo, nombreMascota, enfermedad) // En la creacion de constantes se realizo con letra minuscula en lugar de mayuscula para seguir la convencion de manera correcta aprobado por el profe Claudio 
         return gato
     } else if (tipo === 'conejo') {
-        const conejo = new Mascota(nombre, direccion, telefono, tipo, nombreMascota, enfermedad)
+        const conejo = new Mascota(nombre, direccion, telefono, tipo, nombreMascota, enfermedad) // En la creacion de constantes se realizo con letra minuscula en lugar de mayuscula para seguir la convencion de manera correcta aprobado por el profe Claudio 
         return conejo
     } else {
         return false
     }
 }
 
-function imprimirDatos(event) {
+const imprimirDatos = event => {
     event.preventDefault()
-    const datosDeAtencion = crearDatosConsulta()
+    const datosDeAtencion = crearDatosConsulta() // Ejecutamos la funcion para asignar el objeto a una nueva variable
     if (datosDeAtencion) {
         const selectorDeLista = document.querySelector('#resultado > ul')
         selectorDeLista.innerHTML = `<li>${datosDeAtencion.datosPropietario()}</li> <li>${datosDeAtencion.tipo}, mientras que el nombre de la mascota es: ${datosDeAtencion.nombreMascota} y la enfermedad es: ${datosDeAtencion.enfermedad}.</li>`
+        limpiezaDeLabels()
     }
 }
 
